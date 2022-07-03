@@ -2,10 +2,11 @@ import { ValidationError } from 'joi';
 import loadConfig from '../../src/config';
 
 describe('config', () => {
+    const OLD_ENV = process.env;
+
     beforeEach(() => {
         jest.resetModules();
-        process.env.NODE_ENV = 'development';
-        process.env.PORT = '3000';
+        process.env = { ...OLD_ENV };
     });
 
     describe('loadConfig', () => {
