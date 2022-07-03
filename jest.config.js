@@ -6,6 +6,7 @@ module.exports = {
     roots: ['test'],
     bail: 1,
     verbose: true,
+    setupFiles: ['./test/config/env.mock.ts'],
     coverageDirectory: './coverage',
     collectCoverageFrom: [
         "./src/**/*.{ts,tsx}",
