@@ -1,6 +1,6 @@
-# Walmart challenge backend
+# API Base Backend
 
-Aplicación de node - Typescript para funcionar como API.
+Aplicación de node - Typescript para funcionar como una base de API en estructura.
 
 
 # Comandos
