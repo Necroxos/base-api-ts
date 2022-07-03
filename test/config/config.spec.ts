@@ -1,5 +1,5 @@
 import { ValidationError } from 'joi';
-import { loadConfig } from '../../src/config';
+import loadConfig from '../../src/config';
 
 describe('config', () => {
     beforeEach(() => {
@@ -11,7 +11,7 @@ describe('config', () => {
     describe('loadConfig', () => {
 
         it('should return app config', () => {
-            const result = loadConfig();
+            const result = loadConfig.baseConfig();
 
             expect(result.NODE_ENV).toEqual('development');
             expect(result.PORT).toEqual(3000);
@@ -21,7 +21,7 @@ describe('config', () => {
             process.env.NODE_ENV = 'test';
 
             try {
-                loadConfig();
+                loadConfig.baseConfig();
             } catch (error: any) {
                 const err = (error as ValidationError).details[0];
                 expect(err.message).toEqual('"NODE_ENV" must be one of [development, production]');
@@ -32,7 +32,7 @@ describe('config', () => {
             process.env.PORT = 'test';
 
             try {
-                loadConfig();
+                loadConfig.baseConfig();
             } catch (error: any) {
                 const err = (error as ValidationError).details[0];
                 expect(err.message).toEqual('"PORT" must be a number');
